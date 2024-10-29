@@ -10,9 +10,30 @@ const Footer: React.FC = () => {
 					<h4 className="font-bold mb-2">CONTATO</h4>
 					<p>support@certopelocerto.com</p>
 					<div className="flex space-x-4 mt-4">
-						<FaInstagram size={24} />
-						<FaYoutube size={24} />
-						<FaTiktok size={24} />
+						<a
+							href="https://www.instagram.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="hover:text-gray-700"
+						>
+							<FaInstagram size={24} />
+						</a>
+						<a
+							href="https://www.youtube.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="hover:text-gray-700"
+						>
+							<FaYoutube size={24} />
+						</a>
+						<a
+							href="https://www.tiktok.com"
+							target="_blank"
+							rel="noopener noreferrer"
+							className="hover:text-gray-700"
+						>
+							<FaTiktok size={24} />
+						</a>
 					</div>
 				</div>
 
@@ -20,8 +41,16 @@ const Footer: React.FC = () => {
 				<div>
 					<h4 className="font-bold mb-2">INFORMAÇÃO</h4>
 					<ul className="space-y-2">
-						<li>Termos e Condições</li>
-						<li>Proteção de dados</li>
+						<li>
+							<a href="/terms" className="no-underline hover:text-gray-700">
+								Termos e Condições
+							</a>
+						</li>
+						<li>
+							<a href="/privacy" className="no-underline hover:text-gray-700">
+								Proteção de dados
+							</a>
+						</li>
 					</ul>
 				</div>
 
@@ -29,9 +58,21 @@ const Footer: React.FC = () => {
 				<div>
 					<h4 className="font-bold mb-2">SERVIÇO</h4>
 					<ul className="space-y-2">
-						<li>Remessa</li>
-						<li>Metodos de Pagamentos</li>
-						<li>Trocas e Devoluções</li>
+						<li>
+							<a href="/shipping" className="no-underline hover:text-gray-700">
+								Remessa
+							</a>
+						</li>
+						<li>
+							<a href="/payment" className="no-underline hover:text-gray-700">
+								Métodos de Pagamentos
+							</a>
+						</li>
+						<li>
+							<a href="/returns" className="no-underline hover:text-gray-700">
+								Trocas e Devoluções
+							</a>
+						</li>
 					</ul>
 				</div>
 
@@ -52,11 +93,11 @@ const Footer: React.FC = () => {
 						<input type="checkbox" className="mr-2 mt-1" />
 						<p className="text-sm">
 							CONCORDO COM OS{" "}
-							<a href="#" className="underline">
+							<a href="/terms" className="no-underline hover:text-gray-700">
 								TERMOS E CONDIÇÕES
 							</a>{" "}
 							e com a declaração de{" "}
-							<a href="#" className="underline">
+							<a href="/privacy" className="no-underline hover:text-gray-700">
 								proteção de DADOS
 							</a>
 							.

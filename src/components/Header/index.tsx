@@ -13,9 +13,6 @@ const Header: React.FC = () => {
 				<Link to="/comprar" className="text-sm font-semibold">
 					COMPRAR
 				</Link>
-				<Link to="/midia" className="text-sm font-semibold">
-					MÍDIA
-				</Link>
 			</nav>
 
 			<div>
@@ -23,9 +20,6 @@ const Header: React.FC = () => {
 			</div>
 
 			<nav className="flex space-x-6">
-				<Link to="/pt" className="text-sm font-semibold">
-					PT
-				</Link>
 				<Link to="/conta" className="text-sm font-semibold">
 					CONTA
 				</Link>
