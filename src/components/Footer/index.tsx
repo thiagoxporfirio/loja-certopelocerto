@@ -5,13 +5,12 @@ const Footer: React.FC = () => {
 	return (
 		<footer className="bg-gray-100 p-6 md:p-10">
 			<div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8">
-				{/* Contato */}
 				<div>
 					<h4 className="font-bold mb-2">CONTATO</h4>
 					<p>support@certopelocerto.com</p>
 					<div className="flex space-x-4 mt-4">
 						<a
-							href="https://www.instagram.com"
+							href="https://www.instagram.com/certopelocertostore/"
 							target="_blank"
 							rel="noopener noreferrer"
 							className="hover:text-gray-700"
@@ -37,7 +36,6 @@ const Footer: React.FC = () => {
 					</div>
 				</div>
 
-				{/* Informação */}
 				<div>
 					<h4 className="font-bold mb-2">INFORMAÇÃO</h4>
 					<ul className="space-y-2">
@@ -54,7 +52,6 @@ const Footer: React.FC = () => {
 					</ul>
 				</div>
 
-				{/* Serviço */}
 				<div>
 					<h4 className="font-bold mb-2">SERVIÇO</h4>
 					<ul className="space-y-2">
@@ -76,16 +73,15 @@ const Footer: React.FC = () => {
 					</ul>
 				</div>
 
-				{/* Boletim Informativo */}
 				<div>
 					<h4 className="font-bold mb-2">BOLETIM INFORMATIVO</h4>
-					<div className="flex flex-col md:flex-row mb-2 space-y-2 md:space-y-0">
+					<div className="flex flex-col md:flex-row mb-2">
 						<input
 							type="email"
 							placeholder="endereço de email"
-							className="p-2 h-10 border border-black w-full md:w-2/3 text-sm"
+							className="p-2 h-12 border border-black w-full md:flex-grow text-sm rounded-none"
 						/>
-						<button className="bg-black text-white h-10 px-6 md:w-1/3 text-sm">
+						<button className="bg-black text-white h-12 px-4 md:flex-none text-sm">
 							Inscrever-se
 						</button>
 					</div>

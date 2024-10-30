@@ -2,15 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 
-
 const Header: React.FC = () => {
 	return (
 		<header className="flex justify-between items-center p-4 border-b">
 			<nav className="flex space-x-6">
-				<Link to="/novo" className="text-sm font-semibold">
+				<Link to="/new" className="text-sm font-semibold">
 					NOVO
 				</Link>
-				<Link to="/comprar" className="text-sm font-semibold">
+				<Link to="/buy" className="text-sm font-semibold">
 					COMPRAR
 				</Link>
 			</nav>
@@ -20,7 +19,7 @@ const Header: React.FC = () => {
 			</div>
 
 			<nav className="flex space-x-6">
-				<Link to="/conta" className="text-sm font-semibold">
+				<Link to="/account" className="text-sm font-semibold">
 					CONTA
 				</Link>
 				<Link to="/bolsa" className="text-sm font-semibold">
