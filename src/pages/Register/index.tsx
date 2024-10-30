@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Register: React.FC = () => {
 	return (
@@ -70,6 +71,12 @@ const Register: React.FC = () => {
 					>
 						CRIAR
 					</button>
+                    <div className="text-center">
+
+					<Link to="/account" className="text-sm text-black hover:underline">
+						Voltar
+					</Link>
+				</div>
 				</form>
 			</div>
 		</div>
