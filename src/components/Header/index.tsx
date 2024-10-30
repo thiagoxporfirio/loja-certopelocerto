@@ -9,7 +9,7 @@ const Header: React.FC = () => {
 	const handleMouseLeave = () => setIsDropdownOpen(false);
 
 	return (
-		<header className="relative flex justify-between items-center p-4 border-b">
+		<header className="relative flex justify-between items-center p-8 border-b">
 			<nav className="flex space-x-6">
 				<CustomLink to="/new" text="NEW" />
 				<div
@@ -58,7 +58,7 @@ const Header: React.FC = () => {
 
 			<nav className="flex space-x-6">
 				<CustomLink to="/account" text="CONTA" />
-				<CustomLink to="/bolsa" text="CARRINHO" />
+				<CustomLink to="/cart" text="CARRINHO" />
 			</nav>
 		</header>
 	);
