@@ -10,6 +10,22 @@ const Cart: React.FC = () => {
 			price: 95.0,
 			quantity: 1,
 			image: "https://via.placeholder.com/150"
+		},
+		{
+			id: 1,
+			name: "HOODIE NHS 8000 RPM",
+			size: "S",
+			price: 95.0,
+			quantity: 1,
+			image: "https://via.placeholder.com/150"
+		},
+		{
+			id: 1,
+			name: "HOODIE NHS 8000 RPM",
+			size: "S",
+			price: 95.0,
+			quantity: 1,
+			image: "https://via.placeholder.com/150"
 		}
 	]);
 
@@ -50,7 +66,7 @@ const Cart: React.FC = () => {
 
 			<div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 				{/* Lista de Produtos */}
-				<div className="col-span-2 space-y-8">
+				<div className="col-span-2 space-y-8 mr-10 ml-5">
 					{cartItems.map(item => (
 						<div key={item.id} className="flex items-center">
 							<img
@@ -83,7 +99,7 @@ const Cart: React.FC = () => {
 									Remover
 								</button>
 							</div>
-							<p className="font-medium">{item.price.toFixed(2)}€</p>
+							<p className="font-medium">{item.price.toFixed(2)} BRL</p>
 						</div>
 					))}
 				</div>
@@ -91,7 +107,7 @@ const Cart: React.FC = () => {
 				{/* Resumo do Carrinho */}
 				<div className="p-6 bg-gray-100 shadow-md">
 					<h2 className="font-bold mb-4">Subtotal</h2>
-					<p className="text-lg mb-4">{subtotal.toFixed(2)}€</p>
+					<p className="text-lg mb-4">{subtotal.toFixed(2)} BRL</p>
 					<button className="w-full py-3 bg-black text-white mb-4">
 						PARA FINALIZAR A COMPRA
 					</button>

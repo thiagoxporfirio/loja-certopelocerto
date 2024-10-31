@@ -9,7 +9,7 @@ const Header: React.FC = () => {
 	const handleMouseLeave = () => setIsDropdownOpen(false);
 
 	return (
-		<header className="relative flex justify-between items-center p-8 border-b">
+		<header className="relative flex justify-between items-center p-8 border-b border-t">
 			<nav className="flex space-x-6">
 				<CustomLink to="/new" text="NEW" />
 				<div
