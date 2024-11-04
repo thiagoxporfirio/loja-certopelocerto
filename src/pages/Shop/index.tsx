@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Spineer from "../../components/Spineer";
 
 const Shop: React.FC = () => {
@@ -6,13 +7,14 @@ const Shop: React.FC = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const itemsPerPage = 6;
 	const totalItems = 24;
+	const navigate = useNavigate();
 
 	// Simulando uma lista de produtos
 	const products = Array.from({ length: totalItems }).map((_, index) => ({
 		id: index + 1,
 		name: `Hoodie de Competição ${index + 1}`,
 		price: "95,00 BRL",
-		image: "https://via.placeholder.com"
+		image: "https://via.placeholder.com/300"
 	}));
 
 	const startIndex = (currentPage - 1) * itemsPerPage;
@@ -24,6 +26,10 @@ const Shop: React.FC = () => {
 		setTimeout(() => setIsLoading(false), 2000);
 	}, []);
 
+	const handleProductClick = (productId: number) => {
+		navigate(`/product/${productId}`);
+	};
+
 	if (isLoading) {
 		return <Spineer />;
 	}
@@ -31,9 +37,14 @@ const Shop: React.FC = () => {
 	return (
 		<div className="min-h-screen">
 			<div className="px-8 py-12">
+				{/* Lista de Produtos */}
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 					{currentProducts.map(product => (
-						<div key={product.id} className="p-2 text-center">
+						<div
+							key={product.id}
+							className="p-2 text-center cursor-pointer"
+							onClick={() => handleProductClick(product.id)}
+						>
 							<div className="h-[600px] w-full bg-gray-300 mb-4 flex items-center justify-center">
 								<img
 									src={product.image}
@@ -47,6 +58,7 @@ const Shop: React.FC = () => {
 					))}
 				</div>
 
+				{/* Paginação */}
 				<div className="flex justify-center items-center mt-8 space-x-2">
 					{Array.from({ length: totalPages }).map((_, index) => (
 						<button
