@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Spineer from "../../components/Spineer";
+import ProductNotFound from "../NotFound";
 
 interface Product {
 	id: number;
@@ -60,7 +61,7 @@ const ProductDetails: React.FC = () => {
 	}
 
 	if (!product) {
-		return <p>Produto não encontrado.</p>;
+		return <ProductNotFound />;
 	}
 
 	return (
