@@ -1,13 +1,19 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import Spineer from "../../components/Spineer";
 
 const New: React.FC = () => {
-    const [isLoading, setIsLoading] = useState(true);
+	const [isLoading, setIsLoading] = useState(true);
+	const navigate = useNavigate();
 
-    // Simulando o carregamento de 2 segundos
+	// Simulando o carregamento de 2 segundos
 	useEffect(() => {
 		setTimeout(() => setIsLoading(false), 2000);
 	}, []);
+
+	const handleProductClick = (productId: number) => {
+		navigate(`/product/${productId}`);
+	};
 
 	if (isLoading) {
 		return <Spineer />;
@@ -19,7 +25,11 @@ const New: React.FC = () => {
 				{/* Lista de Produtos - Placeholder */}
 				<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
 					{Array.from({ length: 6 }).map((_, index) => (
-						<div key={index} className="p-2 text-center">
+						<div
+							key={index}
+							className="p-2 text-center cursor-pointer"
+							onClick={() => handleProductClick(index + 1)}
+						>
 							<div className="h-[600px] w-full bg-gray-300 mb-4 flex items-center justify-center">
 								<img
 									src="https://via.placeholder.com"

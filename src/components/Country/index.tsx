@@ -1,5 +1,4 @@
 import React from "react";
-import { FaFlag } from "react-icons/fa";
 
 const Country: React.FC = () => {
 	return (

@@ -8,6 +8,7 @@ import New from "./pages/New";
 import Shop from "./pages/Shop";
 import ForgotPassword from "./pages/Password";
 import Cart from "./pages/Cart";
+import ProductDetails from "./pages/Product";
 
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
 	const isAuthenticated = !!localStorage.getItem("token");
@@ -21,6 +22,7 @@ function App() {
 				<Routes>
 					<Route path="/" element={<Initial />} />
 					<Route path="/new" element={<New />} />
+					<Route path="/product/:productId" element={<ProductDetails />} />
 					<Route path="/account/register" element={<Register />} />
 					<Route path="/forgot-password" element={<ForgotPassword />} />
 					<Route path="/account" element={<Login />} />
