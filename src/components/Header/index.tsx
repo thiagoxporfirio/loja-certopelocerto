@@ -27,7 +27,9 @@ const Header: React.FC = () => {
 	return (
 		<header
 			className={`${
-				isFixed ? "fixed top-0 left-0 w-full bg-white shadow-lg z-20" : "relative"
+				isFixed
+					? "fixed top-0 left-0 w-full bg-white shadow-lg z-20"
+					: "relative"
 			} transition-all duration-300 ease-in-out flex justify-between items-center p-4 md:p-8 border-b border-t`}
 		>
 			<nav className="flex items-center space-x-8">
@@ -44,13 +46,15 @@ const Header: React.FC = () => {
 							style={{ paddingLeft: "2rem", paddingRight: "2rem" }}
 						>
 							<div className="max-w-screen-xl mx-auto px-4">
-								<h4 className="font-bold mb-4">COLLECTIONS</h4>
+								<h4 className="font-bold mb-4">COLEÇÕES</h4>
 								<ul className="space-y-1">
 									<li>
 										<Link to="/collections/drifting">Drifting Machines</Link>
 									</li>
 									<li>
-										<Link to="/collections/daily">No Half Sends | Daily 24</Link>
+										<Link to="/collections/daily">
+											No Half Sends | Daily 24
+										</Link>
 									</li>
 									<li>
 										<Link to="/collections/flatout">Flat Out</Link>
