@@ -1,15 +1,35 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logo.jpg";
 
 const Header: React.FC = () => {
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+	const [isFixed, setIsFixed] = useState(false);
 
 	const handleMouseEnter = () => setIsDropdownOpen(true);
 	const handleMouseLeave = () => setIsDropdownOpen(false);
 
+	useEffect(() => {
+		const handleScroll = () => {
+			// Define o ponto no qual o header deve ser fixado
+			if (window.scrollY > 220) {
+				setIsFixed(true);
+			} else {
+				setIsFixed(false);
+			}
+		};
+
+		window.addEventListener("scroll", handleScroll);
+
+		return () => window.removeEventListener("scroll", handleScroll);
+	}, []);
+
 	return (
-		<header className="relative flex justify-between items-center p-8 border-b border-t">
+		<header
+			className={`${
+				isFixed ? "fixed top-0 left-0 w-full bg-white shadow-lg z-20" : "relative"
+			} transition-all duration-300 ease-in-out flex justify-between items-center p-4 md:p-8 border-b border-t`}
+		>
 			<nav className="flex items-center space-x-8">
 				<CustomLink to="/new" text="NEW" />
 				<div
@@ -30,9 +50,7 @@ const Header: React.FC = () => {
 										<Link to="/collections/drifting">Drifting Machines</Link>
 									</li>
 									<li>
-										<Link to="/collections/daily">
-											No Half Sends | Daily 24
-										</Link>
+										<Link to="/collections/daily">No Half Sends | Daily 24</Link>
 									</li>
 									<li>
 										<Link to="/collections/flatout">Flat Out</Link>
