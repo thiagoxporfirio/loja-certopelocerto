@@ -15,10 +15,10 @@ const Initial: React.FC = () => {
 
 			{/* Novidades */}
 			<div className="px-8 py-12">
-				<h2 className="text-3xl font-bold text-center mb-8">Novidades</h2>
+				<h2 className="text-3xl font-bold text-center mb-8">CHEGANDO AGORA!</h2>
 
 				{/* Lista de Produtos - Placeholder */}
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 					{Array.from({ length: 6 }).map((_, index) => (
 						<div key={index} className="p-2 text-center">
 							<div className="h-[600px] w-full bg-gray-300 mb-4 flex items-center justify-center">
@@ -42,7 +42,7 @@ const Initial: React.FC = () => {
 						to="/shop"
 						className="px-6 py-3 bg-black text-white hover:bg-gray-800"
 					>
-						Todos os Produtos
+						VER TUDO
 					</Link>
 				</div>
 			</div>

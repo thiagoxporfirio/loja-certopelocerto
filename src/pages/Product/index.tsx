@@ -65,7 +65,7 @@ const ProductDetails: React.FC = () => {
 	}
 
 	return (
-		<div className="min-h-screen p-8 ml-[100px] mr-[100px] flex flex-col md:flex-row">
+		<div className="min-h-screen p-[100px] ml-[100px] mr-[100px] flex flex-col md:flex-row">
 			{/* Galeria de Imagens */}
 			<div className="flex flex-col items-center md:items-start md:w-1/3 space-y-4">
 				{product.images.map((image, index) => (

@@ -23,8 +23,8 @@ const New: React.FC = () => {
 		<div className="min-h-screen">
 			<div className="px-8 py-12">
 				{/* Lista de Produtos - Placeholder */}
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-					{Array.from({ length: 6 }).map((_, index) => (
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+					{Array.from({ length: 8 }).map((_, index) => (
 						<div
 							key={index}
 							className="p-2 text-center cursor-pointer"

@@ -5,7 +5,7 @@ import Spineer from "../../components/Spineer";
 const Shop: React.FC = () => {
 	const [currentPage, setCurrentPage] = useState(1);
 	const [isLoading, setIsLoading] = useState(true);
-	const itemsPerPage = 6;
+	const itemsPerPage = 8;
 	const totalItems = 24;
 	const navigate = useNavigate();
 
@@ -38,7 +38,7 @@ const Shop: React.FC = () => {
 		<div className="min-h-screen">
 			<div className="px-8 py-12">
 				{/* Lista de Produtos */}
-				<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+				<div className="grid grid-cols-1 md:grid-cols-4 gap-4">
 					{currentProducts.map(product => (
 						<div
 							key={product.id}

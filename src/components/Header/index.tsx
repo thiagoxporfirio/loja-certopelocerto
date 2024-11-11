@@ -33,13 +33,13 @@ const Header: React.FC = () => {
 			} transition-all duration-300 ease-in-out flex justify-between items-center p-4 md:p-8 border-b border-t`}
 		>
 			<nav className="flex items-center space-x-8">
-				<CustomLink to="/new" text="NEW" />
+				<CustomLink to="/new" text="NOVO" />
 				<div
 					className="relative flex items-center"
 					onMouseEnter={handleMouseEnter}
 					onMouseLeave={handleMouseLeave}
 				>
-					<CustomLink to="/shop" text="SHOP" />
+					<CustomLink to="/shop" text="COMPRAR" />
 					{isDropdownOpen && (
 						<div
 							className="absolute left-0 top-full mt-0 w-screen bg-gray-100 py-8 shadow-lg z-10"
@@ -104,7 +104,7 @@ const CustomLink: React.FC<CustomLinkProps> = ({ to, text }) => (
 		className="relative text-sm font-semibold group flex items-center"
 	>
 		{text}
-		<span className="block h-[2px] bg-black scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left"></span>
+		<span className="block h-[2px] bg-black w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left"></span>
 	</Link>
 );
 
