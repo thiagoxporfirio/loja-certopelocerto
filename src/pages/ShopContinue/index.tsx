@@ -2,9 +2,10 @@ import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Spineer from "../../components/Spineer";
 
-const New: React.FC = () => {
+const ShopContinue: React.FC = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const navigate = useNavigate();
+
 
 	// Simulando o carregamento de 2 segundos
 	useEffect(() => {
@@ -22,9 +23,12 @@ const New: React.FC = () => {
 	return (
 		<div className="min-h-screen">
 			<div className="px-8 py-12">
-				{/* Lista de Produtos - Placeholder */}
-				<div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-					{Array.from({ length: 8 }).map((_, index) => (
+				<div className=" flex flex-col items-center justify-center">
+					<h1 className="text-2xl font-bold mb-4">MAIS VISTOS</h1>
+				</div>
+				{/* Lista de Produtos mais vistos */}
+				<div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+					{Array.from({ length: 6 }).map((_, index) => (
 						<div
 							key={index}
 							className="p-2 text-center cursor-pointer"
@@ -49,4 +53,4 @@ const New: React.FC = () => {
 	);
 };
 
-export default New;
+export default ShopContinue;

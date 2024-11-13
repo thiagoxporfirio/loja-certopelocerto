@@ -49,10 +49,10 @@ const Shop: React.FC = () => {
 								<img
 									src={product.image}
 									alt={`Produto ${product.id}`}
-									className="object-contain h-full"
+									className="object-contain h-full w-full"
 								/>
 							</div>
-							<h3 className="font-medium text-lg mb-1">{product.name}</h3>
+							<h3 className="font-lg text-lg mb-1">{product.name}</h3>
 							<p className="text-sm text-gray-500">{product.price}</p>
 						</div>
 					))}

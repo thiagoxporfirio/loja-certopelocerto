@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+import ShopContinue from "../ShopContinue";
 
 const Cart: React.FC = () => {
 	const [cartItems, setCartItems] = useState([
@@ -123,6 +124,12 @@ const Cart: React.FC = () => {
 					</p>
 				</div>
 			</div>
+			<br />
+			<br />
+			<br />
+			<hr />
+
+			<ShopContinue/>
 		</div>
 	);
 };
