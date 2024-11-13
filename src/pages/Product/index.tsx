@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import Spineer from "../../components/Spineer";
 import ProductNotFound from "../NotFound";
+import { useCartStore } from "../../store/useCartStore";
 
 interface Product {
 	id: number;
@@ -21,6 +22,8 @@ const ProductDetails: React.FC = () => {
 	const [isLoading, setIsLoading] = useState(true);
 	const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
+	const addToCart = useCartStore(state => state.addToCart);
+
 	useEffect(() => {
 		// Simulação de requisição ao backend para obter detalhes do produto
 		setTimeout(() => {
@@ -28,7 +31,8 @@ const ProductDetails: React.FC = () => {
 				id: Number(productId),
 				name: "NHS DRIFT TEE",
 				price: "49,00 BRL",
-				description: "Imposto incluído. Frete calculado na finalização da compra.",
+				description:
+					"Imposto incluído. Frete calculado na finalização da compra.",
 				images: [
 					"https://via.placeholder.com/150",
 					"https://via.placeholder.com/150",
@@ -55,6 +59,26 @@ const ProductDetails: React.FC = () => {
 			setIsLoading(false);
 		}, 2000);
 	}, [productId]);
+
+	const handleAddToCart = () => {
+		if (!product || !selectedSize) {
+			alert("Selecione um tamanho antes de adicionar ao carrinho.");
+			return;
+		}
+
+		addToCart({
+			id: product.id,
+			name: product.name,
+			price: product.price,
+			size: selectedSize,
+			image: product.images[0],
+			quantity: 1
+		});
+	};
+
+	const totalItems = useCartStore((state) => state.totalItems);
+
+	console.log(totalItems);
 
 	if (isLoading) {
 		return <Spineer />;
@@ -105,7 +129,10 @@ const ProductDetails: React.FC = () => {
 				</div>
 
 				{/* Botão de Adicionar ao Carrinho */}
-				<button className="w-full py-3 bg-black text-white font-bold mb-8">
+				<button
+					className="w-full py-3 bg-black text-white font-bold mb-8"
+					onClick={handleAddToCart}
+				>
 					ADICIONAR AO CARRINHO
 				</button>
 

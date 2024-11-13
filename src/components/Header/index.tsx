@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useCartStore } from "../../store/useCartStore"; // Importe a store do carrinho
 import logo from "../../assets/logo.jpg";
 
 const Header: React.FC = () => {
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const [isFixed, setIsFixed] = useState(false);
+	const totalItems = useCartStore(state => state.totalItems); // Acessa o total de itens da store
 
 	const handleMouseEnter = () => setIsDropdownOpen(true);
 	const handleMouseLeave = () => setIsDropdownOpen(false);
 
 	useEffect(() => {
 		const handleScroll = () => {
-			// Define o ponto no qual o header deve ser fixado
 			if (window.scrollY > 220) {
 				setIsFixed(true);
 			} else {
 				setIsFixed(false);
 			}
 		};
-
 		window.addEventListener("scroll", handleScroll);
-
 		return () => window.removeEventListener("scroll", handleScroll);
 	}, []);
 
@@ -87,7 +86,15 @@ const Header: React.FC = () => {
 
 			<nav className="flex items-center space-x-8">
 				<CustomLink to="/account" text="CONTA" />
-				<CustomLink to="/cart" text="CARRINHO" />
+				<div className="relative">
+					<CustomLink to="/cart" text="CARRINHO" />
+					{/* Totalizador de itens do carrinho */}
+					{totalItems > 0 && (
+						<span className="absolute -top-2 -right-4 bg-red-600 text-white text-xs font-bold w-5 h-5 flex items-center justify-center rounded-full">
+							{totalItems}
+						</span>
+					)}
+				</div>
 			</nav>
 		</header>
 	);
