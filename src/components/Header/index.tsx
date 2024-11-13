@@ -1,15 +1,23 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useCartStore } from "../../store/useCartStore"; // Importe a store do carrinho
 import logo from "../../assets/logo.jpg";
+
 
 const Header: React.FC = () => {
 	const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 	const [isFixed, setIsFixed] = useState(false);
+
+	const navigate = useNavigate();
+
 	const totalItems = useCartStore(state => state.totalItems); // Acessa o total de itens da store
 
 	const handleMouseEnter = () => setIsDropdownOpen(true);
 	const handleMouseLeave = () => setIsDropdownOpen(false);
+
+	const handleLogoClick = () => {
+		navigate("/");
+	}
 
 	useEffect(() => {
 		const handleScroll = () => {
@@ -81,7 +89,7 @@ const Header: React.FC = () => {
 			</nav>
 
 			<div className="flex items-center">
-				<img src={logo} alt="Logo" className="h-16" />
+				<img src={logo} alt="Logo" className="h-16 cursor-pointer" onClick={handleLogoClick} />
 			</div>
 
 			<nav className="flex items-center space-x-8">
