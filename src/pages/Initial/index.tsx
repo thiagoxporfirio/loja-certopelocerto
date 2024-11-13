@@ -19,8 +19,12 @@ const Initial: React.FC = () => {
 
 				{/* Lista de Produtos - Placeholder */}
 				<div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-					{Array.from({ length: 6 }).map((_, index) => (
-						<div key={index} className="p-2 text-center">
+					{Array.from({ length: 8 }).map((_, index) => (
+						<Link
+							to={`/product/${index + 1}`} // Link para a página do produto com o ID do produto
+							key={index}
+							className="p-2 text-center block"
+						>
 							<div className="h-[600px] w-full bg-gray-300 mb-4 flex items-center justify-center">
 								<img
 									src="https://via.placeholder.com"
@@ -32,7 +36,7 @@ const Initial: React.FC = () => {
 								Hoodie de Competição {index + 1}
 							</h3>
 							<p className="text-sm text-gray-500">95,00 BRL</p>
-						</div>
+						</Link>
 					))}
 				</div>
 
