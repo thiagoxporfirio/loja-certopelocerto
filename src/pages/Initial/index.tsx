@@ -1,16 +1,50 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { Carousel } from "react-responsive-carousel";
+import "react-responsive-carousel/lib/styles/carousel.min.css";
+import carrosel1 from "../../assets/carrosel.jpg";
+import carrosel2 from "../../assets/carrosel2.jpg";
+import bhomem from "../../assets/bhomem.jpg";
+import blackhomem from "../../assets/blackhomem.jpg";
+import branco from "../../assets/branco.jpg";
 
 const Initial: React.FC = () => {
+	const productImages = [
+		{ primary: bhomem, secondary: blackhomem },
+		{ primary: blackhomem, secondary: branco },
+		{ primary: branco, secondary: bhomem },
+		{ primary: bhomem, secondary: blackhomem },
+		{ primary: blackhomem, secondary: branco },
+		{ primary: branco, secondary: bhomem },
+		{ primary: bhomem, secondary: blackhomem },
+		{ primary: blackhomem, secondary: branco },
+	];
+
 	return (
 		<div className="min-h-screen">
-			{/* Imagem Esticada */}
+			{/* Carrossel de Imagens */}
 			<div className="relative h-screen">
-				<img
-					src="https://via.placeholder.com/1920x1080"
-					alt="Imagem Inicial Fake"
-					className="object-cover w-full h-full"
-				/>
+				<Carousel
+					autoPlay
+					infiniteLoop
+					showThumbs={false}
+					showStatus={false}
+					className="h-full"
+				>
+					{[carrosel1, carrosel2].map((src, index) => (
+						<div key={index} className="h-full">
+							<img src={src} alt={`Imagem ${index + 1}`} className="object-cover w-full h-full" />
+						</div>
+					))}
+				</Carousel>
+				<div className="absolute inset-0 flex items-center justify-center">
+					<Link
+						to="/shop"
+						className="px-6 py-3 bg-black text-white hover:bg-gray-800"
+					>
+						VER TUDO
+					</Link>
+				</div>
 			</div>
 
 			{/* Novidades */}
@@ -18,18 +52,23 @@ const Initial: React.FC = () => {
 				<h2 className="text-3xl font-bold text-center mb-8">CHEGANDO AGORA!</h2>
 
 				{/* Lista de Produtos - Placeholder */}
-				<div className="grid grid-cols-1 md:grid-cols-4 gap-4">
-					{Array.from({ length: 8 }).map((_, index) => (
+				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
+						{productImages.map((images, index) => (
 						<Link
 							to={`/product/${index + 1}`} // Link para a página do produto com o ID do produto
 							key={index}
-							className="p-2 text-center block"
+							className="p-2 text-center block group"
 						>
-							<div className="h-[600px] w-full bg-gray-300 mb-4 flex items-center justify-center">
+							<div className="h-[600px] w-full bg-gray-300 mb-4 flex items-center justify-center relative">
 								<img
-									src="https://via.placeholder.com"
+									src={images.primary}
 									alt={`Produto ${index + 1}`}
-									className="object-contain h-full"
+									className="object-contain h-full w-full group-hover:hidden"
+								/>
+								<img
+									src={images.secondary}
+									alt={`Produto ${index + 1} - Hover`}
+									className="object-contain h-full w-full hidden group-hover:block absolute inset-0"
 								/>
 							</div>
 							<h3 className="font-medium text-lg mb-1">
