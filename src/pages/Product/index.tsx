@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { useSnackbar } from 'notistack';
 import Spineer from "../../components/Spineer";
 import ProductNotFound from "../NotFound";
 import { useCartStore } from "../../store/useCartStore";
@@ -23,6 +24,7 @@ const ProductDetails: React.FC = () => {
 	const [selectedSize, setSelectedSize] = useState<string | null>(null);
 
 	const addToCart = useCartStore(state => state.addToCart);
+	const { enqueueSnackbar } = useSnackbar();
 
 	useEffect(() => {
 		// Simulação de requisição ao backend para obter detalhes do produto
@@ -62,7 +64,7 @@ const ProductDetails: React.FC = () => {
 
 	const handleAddToCart = () => {
 		if (!product || !selectedSize) {
-			alert("Selecione um tamanho antes de adicionar ao carrinho.");
+			enqueueSnackbar("Selecione um tamanho antes de adicionar ao carrinho.", { variant: 'warning' });
 			return;
 		}
 
