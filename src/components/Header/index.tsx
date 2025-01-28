@@ -56,30 +56,30 @@ const Header: React.FC = () => {
 								<h4 className="font-bold mb-4">COLEÇÕES</h4>
 								<ul className="space-y-1">
 									<li>
-										<Link to="/collections/drifting">Drifting Machines</Link>
+										<Link to="/collections/drifting" className="hover:underline">Drifting Machines</Link>
 									</li>
 									<li>
-										<Link to="/collections/daily">
+										<Link to="/collections/daily" className="hover:underline">
 											No Half Sends | Daily 24
 										</Link>
 									</li>
 									<li>
-										<Link to="/collections/flatout">Flat Out</Link>
+										<Link to="/collections/flatout" className="hover:underline">Flat Out</Link>
 									</li>
 									<li>
-										<Link to="/collections/endless">Endless Sands</Link>
+										<Link to="/collections/endless" className="hover:underline">Endless Sands</Link>
 									</li>
 									<li>
-										<Link to="/collections/attitude">Full Sends Attitude</Link>
+										<Link to="/collections/attitude" className="hover:underline">Full Sends Attitude</Link>
 									</li>
 									<li>
-										<Link to="/collections/motorverse">Motorverse</Link>
+										<Link to="/collections/motorverse" className="hover:underline">Motorverse</Link>
 									</li>
 									<li>
-										<Link to="/collections/racing">Racing Community</Link>
+										<Link to="/collections/racing" className="hover:underline">Racing Community</Link>
 									</li>
 									<li>
-										<Link to="/collections/legends">Legends</Link>
+										<Link to="/collections/legends" className="hover:underline">Legends</Link>
 									</li>
 								</ul>
 							</div>
@@ -116,7 +116,7 @@ interface CustomLinkProps {
 const CustomLink: React.FC<CustomLinkProps> = ({ to, text }) => (
 	<Link
 		to={to}
-		className="relative text-sm font-semibold group flex items-center"
+		className="relative text-sm font-semibold group flex items-center hover:underline"
 	>
 		{text}
 		<span className="block h-[2px] bg-black w-full scale-x-0 group-hover:scale-x-100 transition-transform duration-300 ease-in-out origin-left"></span>
