@@ -10,6 +10,9 @@ import Shop from "./pages/Shop";
 import ForgotPassword from "./pages/Password";
 import Cart from "./pages/Cart";
 import ProductDetails from "./pages/Product";
+import TermsAndConditions from "./pages/TermsAndConditions";
+import PaymentMethods from "./pages/PaymentMethods";
+import Returns from "./pages/Returns";
 
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
 	const isAuthenticated = !!localStorage.getItem("token");
@@ -30,6 +33,9 @@ function App() {
 							<Route path="/account" element={<Login />} />
 							<Route path="/shop" element={<Shop />} />
 							<Route path="/cart" element={<Cart />} />
+							 <Route path="/terms" element={<TermsAndConditions />} />
+							 <Route path="/payment" element={<PaymentMethods />} />
+							 <Route path="/returns" element={<Returns />} />
 							<Route
 								path="/dashboard"
 								element={
