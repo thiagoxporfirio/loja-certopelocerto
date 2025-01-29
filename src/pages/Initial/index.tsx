@@ -53,11 +53,11 @@ const Initial: React.FC = () => {
 
 				{/* Lista de Produtos - Placeholder */}
 				<div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-4">
-						{productImages.map((images, index) => (
+					{productImages.map((images, index) => (
 						<Link
 							to={`/product/${index + 1}`} // Link para a página do produto com o ID do produto
 							key={index}
-							className="p-2 text-center block group"
+							className="p-2 block group"
 						>
 							<div className="h-[600px] w-full bg-gray-300 mb-4 flex items-center justify-center relative">
 								<img
@@ -71,10 +71,10 @@ const Initial: React.FC = () => {
 									className="object-contain h-full w-full hidden group-hover:block absolute inset-0"
 								/>
 							</div>
-							<h3 className="font-medium text-lg mb-1">
+							<h3 className="text-sm mb-1 text-left">
 								Hoodie de Competição {index + 1}
 							</h3>
-							<p className="text-sm text-gray-500">95,00 BRL</p>
+							<p className="text-sm text-gray-500 text-left">95,00 BRL</p>
 						</Link>
 					))}
 				</div>
