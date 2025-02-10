@@ -13,6 +13,10 @@ import ProductDetails from "./pages/Product";
 import TermsAndConditions from "./pages/TermsAndConditions";
 import PaymentMethods from "./pages/PaymentMethods";
 import Returns from "./pages/Returns";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+
+const stripePromise = loadStripe("pk_live_51Qqg1LP8BbnibUkSNgH3Knz5AnedZGno4vupSBrJasJHTDBH31nD4sMxO8ahs72li1A0pJw7Z7xGOrwPX4mWfW5C00CRpwuHNa");
 
 const PrivateRoute = ({ children }: { children: JSX.Element }) => {
 	const isAuthenticated = !!localStorage.getItem("token");
@@ -21,9 +25,10 @@ const PrivateRoute = ({ children }: { children: JSX.Element }) => {
 
 function App() {
 	return (
-			<SnackbarProvider maxSnack={3}>
-				<Router>
-					<Layout>
+		<SnackbarProvider maxSnack={3}>
+			<Router>
+				<Layout>
+					<Elements stripe={stripePromise}>
 						<Routes>
 							<Route path="/" element={<Initial />} />
 							<Route path="/new" element={<New />} />
@@ -33,9 +38,9 @@ function App() {
 							<Route path="/account" element={<Login />} />
 							<Route path="/shop" element={<Shop />} />
 							<Route path="/cart" element={<Cart />} />
-							 <Route path="/terms" element={<TermsAndConditions />} />
-							 <Route path="/payment" element={<PaymentMethods />} />
-							 <Route path="/returns" element={<Returns />} />
+							<Route path="/terms" element={<TermsAndConditions />} />
+							<Route path="/payment" element={<PaymentMethods />} />
+							<Route path="/returns" element={<Returns />} />
 							<Route
 								path="/dashboard"
 								element={
@@ -43,10 +48,13 @@ function App() {
 								}
 							/>
 						</Routes>
-					</Layout>
-				</Router>
-			</SnackbarProvider>
+					</Elements>
+				</Layout>
+			</Router>
+		</SnackbarProvider>
 	);
 }
 
 export default App;
+
+export {};

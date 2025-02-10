@@ -2,6 +2,11 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useCartStore } from "../../store/useCartStore";
 import ShopContinue from "../ShopContinue";
+import { loadStripe } from "@stripe/stripe-js";
+import { Elements } from "@stripe/react-stripe-js";
+import CheckoutForm from "../CheckoutForm";
+
+const stripePromise = loadStripe("your-publishable-key-here");
 
 const Cart: React.FC = () => {
 	const { cart, addToCart, removeFromCart, updateQuantity, totalItems } =
@@ -93,15 +98,10 @@ const Cart: React.FC = () => {
 				<div className="p-6 bg-gray-100 shadow-md">
 					<h2 className="font-bold mb-4">Subtotal</h2>
 					<p className="text-lg mb-4">{subtotal.toFixed(2)} BRL</p>
-					<button className="w-full py-3 bg-black text-white mb-4">
-						PARA FINALIZAR A COMPRA
-					</button>
-					<button className="w-full py-3 bg-purple-500 text-white mb-4">
-						shopPay
-					</button>
-					<button className="w-full py-3 bg-yellow-400 text-white">
-						PayPal
-					</button>
+					
+					<Elements stripe={stripePromise}>
+						<CheckoutForm />
+					</Elements>
 					<p className="text-sm mt-4 text-gray-500">
 						Códigos de desconto, custos de envio e impostos são calculados na
 						finalização da compra.
